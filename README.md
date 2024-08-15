@@ -9,13 +9,18 @@
 6. C++ type systems
    - By describing types and their semantics, you can prove your code is at least semantically correct, or it won't even compile. This means invalid code is unrepresentable. The compiler can also prove your code along those semantics, and then optimize more aggressively
    - Goals for Well-Typed code:
-     	1. Make Illegal States unrepresentable
-     	2. use `std::variant` and `std::optional` for formulations that are more natural and fit the business logic state better.
-     	3. use phantom types for safety - make illegal behaviour a compile time error
-     	4. write total functions - unsurprising behaviour + easy to use
+        1. Make Illegal States unrepresentable
+        2. use `std::variant` and `std::optional` for formulations that are more natural and fit the business logic state better
+        3. use phantom types for safety - make illegal behaviour a compile time error
+        4. write total functions - unsurprising behaviour + easy to use
    - Reading Material:
-     	1. https://www.fluentcpp.com/2016/12/08/strong-types-for-strong-interfaces/
-     	2. https://github.com/benroberts999/StrongType
+        1. https://www.fluentcpp.com/2016/12/08/strong-types-for-strong-interfaces/
+        2. https://github.com/benroberts999/StrongType
+        3. https://bulldogjob.pl/readme/taking-advantage-of-the-type-system-in-c
 7. Raw loops are imperative and error prone. Checkout standard algorithms and ranges
-8. Standard C++ IOStreams and Locales
+   - Reading Materials:
+        1. https://meetingcpp.com/blog/items/raw-loops-vs-stl-algorithms.html
+        2. https://ericniebler.com/2018/12/05/standard-ranges
+        3. https://belaycpp.com/2021/06/22/dont-use-raw-loops
+9. Standard C++ IOStreams and Locales
     - Your use of imperative parsing (`getline()`) can be replaced with stream iterators and algorithms. Once you make a type with a stream operator, you can use that stream iterator type.

@@ -14,7 +14,7 @@
      	3. use phantom types for safety - make illegal behaviour a compile time error
      	4. write total functions - unsurprising behaviour + easy to use
    - Reading Material:
-     	1. htps://www.fluentcpp.com/2016/12/08/strong-types-for-strong-interfaces/
+     	1. https://www.fluentcpp.com/2016/12/08/strong-types-for-strong-interfaces/
      	2. https://github.com/benroberts999/StrongType
 7. Raw loops are imperative and error prone. Checkout standard algorithms and ranges
 8. Standard C++ IOStreams and Locales

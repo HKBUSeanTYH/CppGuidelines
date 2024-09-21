@@ -23,4 +23,9 @@
         2. https://ericniebler.com/2018/12/05/standard-ranges
         3. https://belaycpp.com/2021/06/22/dont-use-raw-loops
 9. Standard C++ IOStreams and Locales
-    - Your use of imperative parsing (`getline()`) can be replaced with stream iterators and algorithms. Once you make a type with a stream operator, you can use that stream iterator type.
+    - Your use of imperative parsing (`getline()`) can be replaced with stream iterators and algorithms. Once you make a type with a stream operator, you can use that stream iterator type.  
+10. Google C++ Style Guide
+   - copyable/movable types https://google.github.io/styleguide/cppguide.html#Copyable_Movable_Types
+   - streams usage https://google.github.io/styleguide/cppguide.html#Streams
+   - const usage https://google.github.io/styleguide/cppguide.html#Use_of_const
+   - constexpr, constinit, consteval https://google.github.io/styleguide/cppguide.html#Use_of_constexpr

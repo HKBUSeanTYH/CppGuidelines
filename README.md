@@ -25,7 +25,12 @@
 9. Standard C++ IOStreams and Locales
     - Your use of imperative parsing (`getline()`) can be replaced with stream iterators and algorithms. Once you make a type with a stream operator, you can use that stream iterator type.  
 10. Google C++ Style Guide
-   - copyable/movable types https://google.github.io/styleguide/cppguide.html#Copyable_Movable_Types
-   - streams usage https://google.github.io/styleguide/cppguide.html#Streams
-   - const usage https://google.github.io/styleguide/cppguide.html#Use_of_const
-   - constexpr, constinit, consteval https://google.github.io/styleguide/cppguide.html#Use_of_constexpr
+    - copyable/movable types https://google.github.io/styleguide/cppguide.html#Copyable_Movable_Types
+    - streams usage https://google.github.io/styleguide/cppguide.html#Streams
+    - const usage https://google.github.io/styleguide/cppguide.html#Use_of_const
+    - constexpr, constinit, consteval https://google.github.io/styleguide/cppguide.html#Use_of_constexpr
+11. General guideline to pass-by-value, pass-by-reference, pass-by-value-then-move
+     - If your function wants to take ownership (whether it wants to modify the thing or not), accept the parameter by value. This allows for the code that's calling your function to either give you a copy, or to give you an rvalue reference. You're passing the buck up to the layer above your function. It's not your problem, you don't care, as long as you get the thing by value. Then, once you have the thing by value, you use std::move() to stick it in it's final destination, which will likely be as a member variable in the object that your function belongs to.
+     - Passing by non-const-reference should be relatively rare, but happens. Use this for when the function won't own the data (e.g. won't make copies), but will only modify and then return.
+     - If you want non-owning, non-mutating access, use const-ref if the object in question is larger than sizeof(void*) on your platform, or has a non-trivial constructor / destructor.
+     - At some point or another, I heard that there was a macro, or type_trait thing in Boost somewhere that would automatically deduce this for you, but I never thought it was very elegant looking so I forgot about it until I saw your question.

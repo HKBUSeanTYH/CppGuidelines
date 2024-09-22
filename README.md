@@ -33,7 +33,7 @@
      - If your function wants to take ownership (whether it wants to modify the thing or not), accept the parameter by value. This allows for the code that's calling your function to either give you a copy, or to give you an rvalue reference. You're passing the buck up to the layer above your function. It's not your problem, you don't care, as long as you get the thing by value. Then, once you have the thing by value, you use std::move() to stick it in it's final destination, which will likely be as a member variable in the object that your function belongs to.
      - Passing by non-const-reference should be relatively rare, but happens. Use this for when the function won't own the data (e.g. won't make copies), but will only modify and then return.
      - If you want non-owning, non-mutating access, use const-ref if the object in question is larger than sizeof(void*) on your platform, or has a non-trivial constructor / destructor.
-     - Boost call_traits would automatically deduce this for you. (need further reading up/investigation)
+     - Boost type-traits would automatically deduce this for you. (need further reading up/investigation)
      - Reading Materials:
         1. https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rf-in
             - for "in" parameters, pass cheaply-copied types by value and others by reference to const.
